@@ -193,6 +193,23 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Keybinds to convert spaces to tabs and vice versa
+-- Also specifies the indentation length
+
+function ChangeIndentation(useSpaces, width)
+  vim.opt.expandtab = useSpaces
+  vim.opt.tabstop = width
+  vim.opt.shiftwidth = width
+  vim.opt.softtabstop = width
+end
+vim.keymap.set('n', '<leader>is2', ':lua ChangeIndentation(true, 2)<CR>', { desc = 'Change Indentation to spaces of width 2' })
+vim.keymap.set('n', '<leader>is4', ':lua ChangeIndentation(true, 4)<CR>', { desc = 'Change Indentation to spaces of width 4' })
+vim.keymap.set('n', '<leader>is8', ':lua ChangeIndentation(true, 8)<CR>', { desc = 'Change Indentation to spaces of width 8' })
+
+vim.keymap.set('n', '<leader>it2', ':lua ChangeIndentation(false, 2)<CR>', { desc = 'Change Indentation to tabs of width 2' })
+vim.keymap.set('n', '<leader>it4', ':lua ChangeIndentation(false, 4)<CR>', { desc = 'Change Indentation to tabs of width 4' })
+vim.keymap.set('n', '<leader>it8', ':lua ChangeIndentation(false, 8)<CR>', { desc = 'Change Indentation to tabs of width 8' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -323,6 +340,9 @@ require('lazy').setup({
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>i', group = '[I]ndentation' },
+        { '<leader>is', group = '[I]ndentation change to [S]paces' },
+        { '<leader>it', group = '[I]ndentation change to [T]abs' },
       },
     },
   },
