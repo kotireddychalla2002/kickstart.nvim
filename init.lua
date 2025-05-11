@@ -210,6 +210,10 @@ vim.keymap.set('n', '<leader>it2', ':lua ChangeIndentation(false, 2)<CR>', { des
 vim.keymap.set('n', '<leader>it4', ':lua ChangeIndentation(false, 4)<CR>', { desc = 'Change Indentation to tabs of width 4' })
 vim.keymap.set('n', '<leader>it8', ':lua ChangeIndentation(false, 8)<CR>', { desc = 'Change Indentation to tabs of width 8' })
 
+-- Keybinds for quickfix list
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>', { desc = 'Goto next item in the quickfix list' })
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>', { desc = 'Goto prev item in the quickfix list' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
