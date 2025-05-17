@@ -111,7 +111,7 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- color column for vertical ruler
--- vim.o.colorcolumn = '100'
+vim.o.colorcolumn = '100'
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
